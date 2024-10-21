@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class playerScript : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class playerScript : MonoBehaviour
     public TextMeshProUGUI inGameArrowText;
 
     public GameObject shopButtons;
+    public Text WINTEXT;
 
     // Start is called before the first frame update
     void Start()
@@ -118,7 +120,7 @@ public class playerScript : MonoBehaviour
                 }
             }
 
-            //attacking
+            //attacking dung Space cung duoc hoac Mouse0 de left click
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (direction == 0)
@@ -198,7 +200,7 @@ public class playerScript : MonoBehaviour
             attackingCoolDown -= Time.deltaTime;
         }
 
-        //loosing health
+        //losing health
         if (playerHealth == 3)
         {
             heart1.SetActive(true);
@@ -270,6 +272,12 @@ public class playerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Shop"))
         {
             shopButtons.SetActive(true);
+        }
+
+        //win
+        if(collision.tag == "Win"){
+            WINTEXT.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

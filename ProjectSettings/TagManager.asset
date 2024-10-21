@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - Shop
   - Heart
+  - Wall
+  - Win
   layers:
   - Default
   - TransparentFX
